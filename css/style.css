@@ -23,12 +23,22 @@ body::before {
   background-image: url('../assets/matrixbg.png');
   background-repeat: repeat;
   background-size: auto;
-  opacity: 0.2;
+  opacity: 0.4;
   z-index: -1;
   pointer-events: none;
 }
 
-.email-wall, .music-player {
+.email-wall {
+  background: black;
+  border: 1px solid #3e019a;
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 400px;
+  box-shadow: 0 0 5px #1d3d0f;
+}
+
+.music-player {
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid #3e019a;
   border-radius: 12px;
@@ -37,6 +47,7 @@ body::before {
   max-width: 400px;
   box-shadow: 0 0 5px #1d3d0f;
 }
+
 
 .logo {
   width: 90%;
