@@ -27,7 +27,7 @@ body::before {
 
 .email-wall, .music-player {
   background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #d0ffc0;
+  border: 1px solid #3e019a;
   border-radius: 12px;
   padding: 40px 20px;
   margin: 40px auto;
