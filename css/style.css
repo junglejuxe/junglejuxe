@@ -174,28 +174,30 @@ header {
   top: 0;
   width: 100%;
   background: linear-gradient(to bottom, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-  text-align: center;
   z-index: 1000;
-  padding-bottom: 20px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
 }
 
-.header-wrapper {
+.header-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .header-logo {
   height: 100px;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .main-nav {
   display: flex;
+  gap: 30px;
   justify-content: center;
-  gap: 25px;
+  align-items: center;
   margin-top: 5px;
 }
 
@@ -213,12 +215,7 @@ header {
   color: #59a326;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Prevent content overlap from fixed header */
+/* Prevent overlap with scrolling */
 #album, #event, #store {
   scroll-margin-top: 150px;
   padding-top: 15px;
