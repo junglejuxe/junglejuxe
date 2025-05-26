@@ -14,8 +14,8 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 75%;
-  height: 75%;
+  width: 50%;
+  height: 50%;
   background-color: black;
   background-image: url('../assets/matrixbg.png');
   background-repeat: repeat;
@@ -24,7 +24,6 @@ body::before {
   z-index: -1;
   pointer-events: none;
 }
-
 
 .email-wall, .music-player {
   background: rgba(0, 0, 0, 0.5);
@@ -87,10 +86,12 @@ header {
   margin: 20px auto;
   display: block;
 }
+
 .music-player audio {
   width: 100%;
   margin-bottom: 20px;
 }
+
 .music-player button {
   background: #39690e;
   color: white;
