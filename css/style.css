@@ -28,6 +28,15 @@ body::before {
   pointer-events: none;
 }
 
+.email-wall-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
 .email-wall {
   background: black;
   border: 1px solid #3e019a;
