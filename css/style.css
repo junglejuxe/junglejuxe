@@ -173,12 +173,13 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: transparent; /* No fade */
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
   z-index: 1000;
   padding: 20px 0;
   display: flex;
   justify-content: center;
 }
+
 
 .header-inner {
   display: flex;
@@ -218,6 +219,6 @@ header {
 
 /* Prevent overlap with scrolling */
 #album, #event, #store {
-  scroll-margin-top: 150px;
-  padding-top: 15px;
+  scroll-margin-top: 140px;
+  padding-top: 160px;
 }
