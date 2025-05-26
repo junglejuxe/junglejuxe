@@ -126,6 +126,32 @@
       </div>
     </div>
 
+<div class="release-party-container">
+  <h2 class="release-title">JUNGLE JUXE ALBUM RELEASE PARTY</h2>
+  <div class="release-video-wrapper">
+    <video class="release-video" id="releaseVideo" src="assets/jj_party.mp4" playsinline preload="auto" muted></video>
+  </div>
+  <div class="ticket-link">
+    <a href="https://posh.vip/e/junglejuxe-release-party-1" target="_blank">
+      <button>Get Tickets</button>
+    </a>
+  </div>
+</div>
+<script>
+  // Scroll-triggered video play
+  const video = document.getElementById('releaseVideo');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        video.play();
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.7 });
+  observer.observe(video);
+</script>
+
+    
     <div class="shopify-products">
       <h2>Merch & Products</h2>
       <div id="shopify-embed"><div id='collection-component-1748292361713'></div>
