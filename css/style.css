@@ -104,3 +104,49 @@ header {
 .music-player button:hover {
   background: #59a326;
 }
+
+.release-party-container {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #3e019a;
+  border-radius: 12px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  max-width: 800px;
+  box-shadow: 0 0 10px #1d3d0f;
+  color: #d0ffc0;
+}
+
+.release-title {
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  color: #b6ff9c;
+}
+
+.release-video-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.release-video {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #39690e;
+  box-shadow: 0 0 8px #1d3d0f;
+}
+
+.ticket-link button {
+  background: #3e019a;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ticket-link button:hover {
+  background: #59a326;
+}
+
