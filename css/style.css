@@ -166,3 +166,53 @@ header {
   color: #b6ff9c;
 }
 
+.floating-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px 0;
+  text-align: center;
+  z-index: 1000;
+}
+
+.logo-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-caev {
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.logo-jj {
+  height: 90px;
+}
+
+.main-nav {
+  margin-top: 10px;
+}
+
+.main-nav a {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 0.9em;
+  color: #d0ffc0;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #59a326;
+}
+
+section {
+  scroll-margin-top: 140px;
+}
+
+
