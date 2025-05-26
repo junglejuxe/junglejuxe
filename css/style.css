@@ -220,6 +220,6 @@ html {
 
 /* Prevent content overlap from fixed header */
 #album, #event, #store {
-  scroll-margin-top: 140px;
-  padding-top: 10px;
+  scroll-margin-top: 150px;
+  padding-top: 15px;
 }
