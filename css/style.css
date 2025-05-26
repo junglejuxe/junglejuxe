@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;
@@ -170,33 +173,23 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-  padding: 15px 0 10px;
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
   text-align: center;
   z-index: 1000;
+  padding-bottom: 20px;
 }
 
-.logo-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-caev {
-  height: 30px;
+.header-logo {
+  height: 100px;
+  margin-top: 10px;
   margin-bottom: 5px;
-}
-
-.logo-jj {
-  height: 90px;
-  margin-bottom: 10px;
 }
 
 .main-nav {
   display: flex;
   gap: 20px;
   justify-content: center;
+  margin-top: 5px;
 }
 
 .main-nav a {
@@ -213,6 +206,13 @@ header {
   color: #59a326;
 }
 
-section {
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent content from hiding under the fixed header */
+#album, #event, #store {
   scroll-margin-top: 140px;
+  padding-top: 20px; /* Optional extra buffer */
 }
