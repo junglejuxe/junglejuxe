@@ -171,7 +171,7 @@ header {
   top: 0;
   width: 100%;
   background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-  padding: 20px 0;
+  padding: 15px 0 10px;
   text-align: center;
   z-index: 1000;
 }
@@ -190,18 +190,20 @@ header {
 
 .logo-jj {
   height: 90px;
+  margin-bottom: 10px;
 }
 
 .main-nav {
-  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
 .main-nav a {
   font-family: 'Orbitron', Arial, sans-serif;
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #d0ffc0;
   text-decoration: none;
-  margin: 0 15px;
   font-weight: bold;
   letter-spacing: 1px;
   transition: color 0.2s ease;
@@ -214,5 +216,3 @@ header {
 section {
   scroll-margin-top: 140px;
 }
-
-
