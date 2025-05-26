@@ -74,10 +74,12 @@ button:hover {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  align-items: center;
+  padding: 20px 30px;
 }
 .top-left, .top-right {
-  height: 40px;
+  height: 70px;         /* You can adjust this to 60, 80, etc. */
+  max-height: 15vh;     /* Optional: makes it responsive on smaller screens */
 }
 
 .album-cover {
