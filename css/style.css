@@ -220,5 +220,4 @@ header {
 /* Prevent overlap with scrolling */
 #album, #event, #store {
   scroll-margin-top: 140px;
-  padding-top: 160px;
 }
