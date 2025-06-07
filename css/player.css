@@ -146,3 +146,33 @@ audio {
 .unlock-banner button:hover {
   background: #3e019a;
 }
+
+.global-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.global-controls button {
+  background: #3e019a;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.global-controls button:hover {
+  background: #59a326;
+}
+
+#progressBar {
+  width: 200px;
+  height: 5px;
+  cursor: pointer;
+  accent-color: #59a326;
+}
+
