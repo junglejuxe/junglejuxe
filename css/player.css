@@ -22,10 +22,12 @@
 
 .player-header .album-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 20px;
-  flex-grow: 1;       /* allows it to take more space */
-  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
 }
 
 .album-art {
@@ -49,7 +51,9 @@
   color: #a1d996;
   text-align: center;
 }
-
+.album-info {
+  text-align: center;
+}
 .purchase-btn-top {
   background: #3e019a;
   color: white;
