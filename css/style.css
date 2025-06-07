@@ -41,22 +41,22 @@ body::before {
 
 .email-wall {
   background: black;
-  border: 1px solid #3e019a;
-  border-radius: 12px;
+  border: none;
+  border-radius: 0;
   padding: 40px 20px;
   margin: 40px auto;
   max-width: 400px;
-  box-shadow: 0 0 5px #1d3d0f;
+  box-shadow: none;
 }
 
 .music-player {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #3e019a;
-  border-radius: 12px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   padding: 40px 20px;
   margin: 40px auto;
   max-width: 400px;
-  box-shadow: 0 0 5px #1d3d0f;
+  box-shadow: none;
 }
 
 .logo {
@@ -166,16 +166,16 @@ button:hover {
   color: #59a326;
 }
 
-/* Shared Styles for Release Party & Shopify */
+/* Release Party & Shopify Containers - Seamless */
 .release-party-container,
 .shopify-container {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #3e019a;
-  border-radius: 12px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   margin: 40px auto;
   padding: 30px 20px;
   max-width: 800px;
-  box-shadow: 0 0 10px #1d3d0f;
+  box-shadow: none;
   color: #d0ffc0;
 }
 
