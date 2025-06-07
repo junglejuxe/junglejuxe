@@ -74,7 +74,25 @@
   max-height: 400px;
   overflow-y: auto;
   padding-right: 5px;
+  scrollbar-width: thin;          /* Firefox */
+  scrollbar-color: #59a326 black; /* Firefox */
 }
+
+/* For Chrome, Edge, Safari */
+.track-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.track-scroll-container::-webkit-scrollbar-track {
+  background: black;
+}
+
+.track-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #59a326;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
 
 .track-list {
   display: flex;
