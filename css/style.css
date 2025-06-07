@@ -42,21 +42,21 @@ body::before {
 .email-wall {
   background: black;
   border: none;
-  border-radius: 0;
+  border-radius: 12px;
   padding: 40px 20px;
   margin: 40px auto;
   max-width: 400px;
-  box-shadow: none;
+  box-shadow: 0 0 5px #1d3d0f;
 }
 
 .music-player {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  border-radius: 0;
+  border-radius: 12px;
   padding: 40px 20px;
   margin: 40px auto;
-  max-width: 400px;
-  box-shadow: none;
+  max-width: 800px;
+  box-shadow: 0 0 5px #1d3d0f;
 }
 
 .logo {
@@ -102,20 +102,11 @@ button:hover {
   display: block;
 }
 
-.music-player audio {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.music-player button {
-  background: #39690e;
-  color: white;
-  border-radius: 6px;
-  font-size: 1em;
-  padding: 12px 30px;
-}
-.music-player button:hover {
-  background: #59a326;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
 }
 
 /* Floating Header */
@@ -130,7 +121,6 @@ button:hover {
   justify-content: center;
 }
 
-/* Centered contents in header */
 .header-inner {
   display: flex;
   flex-direction: column;
@@ -166,16 +156,15 @@ button:hover {
   color: #59a326;
 }
 
-/* Release Party & Shopify Containers - Seamless */
 .release-party-container,
 .shopify-container {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  border-radius: 0;
+  border-radius: 12px;
   margin: 40px auto;
   padding: 30px 20px;
   max-width: 800px;
-  box-shadow: none;
+  box-shadow: 0 0 10px #1d3d0f;
   color: #d0ffc0;
 }
 
@@ -213,7 +202,6 @@ button:hover {
   background: #59a326;
 }
 
-/* Footer */
 .site-footer {
   text-align: center;
   padding: 20px;
@@ -222,7 +210,31 @@ button:hover {
   margin-top: 60px;
 }
 
-/* Anchor offset scroll fix */
 #album, #event, #store {
   scroll-margin-top: 180px;
+}
+
+.track-list .track::before {
+  content: attr(data-title) " by " attr(data-artist);
+  display: block;
+  font-size: 1em;
+  color: #7dd87f;
+  margin-bottom: 5px;
+}
+
+.track-list .track {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #2e4e17;
+  position: relative;
+  text-align: left;
+  color: #d0ffc0;
+}
+
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px;
 }
