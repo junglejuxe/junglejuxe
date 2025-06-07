@@ -40,12 +40,14 @@
   margin: 0;
   font-size: 1.5em;
   color: #b6ff9c;
+  text-align: center;
 }
 
 .album-info p {
   margin: 4px 0;
   font-size: 0.9em;
   color: #a1d996;
+  text-align: center;
 }
 
 .purchase-btn-top {
