@@ -20,26 +20,64 @@
     </div>
   </header>
   <main><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-   <section id="album">
-  <div class="player-container">
-    <div class="album-info">
-      <img src="assets/COVER_ART.jpeg" alt="Album Art" class="album-art">
-      <h1>JungleJuxe</h1>
-      <p>by CAEV</p>
-    </div>
+    <section id="album">
+      <div class="player-container">
+        <div class="album-info">
+          <img src="assets/COVER_ART.jpeg" alt="Album Art" class="album-art">
+          <h1>JungleJuxe</h1>
+          <p>by CAEV</p>
+          <p class="note">Preview: 30s per track</p>
+        </div>
 
-    <div class="player-controls">
-      <button onclick="prevTrack()">⏮</button>
-      <button onclick="togglePlay()">▶️</button>
-      <button onclick="nextTrack()">⏭</button>
-    </div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
+        <div class="player-controls">
+          <button onclick="prevTrack()">⏮</button>
+          <button onclick="togglePlay()">▶️</button>
+          <button onclick="nextTrack()">⏭</button>
+        </div>
 
-    <div class="track-scroll-container" id="trackList"></div>
-  </div>
-</section>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="track-scroll-container">
+          <div class="track-list">
+            <div class="track" data-title="Track 1" data-artist="CAEV">
+              <audio preload="none" src="previews/track1.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 2" data-artist="CAEV">
+              <audio preload="none" src="previews/track2.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 3" data-artist="CAEV">
+              <audio preload="none" src="previews/track3.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 4" data-artist="CAEV">
+              <audio preload="none" src="previews/track4.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 5" data-artist="CAEV">
+              <audio preload="none" src="previews/track5.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 6" data-artist="CAEV">
+              <audio preload="none" src="previews/track6.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 7" data-artist="CAEV">
+              <audio preload="none" src="previews/track7.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 8" data-artist="CAEV">
+              <audio preload="none" src="previews/track8.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 9" data-artist="CAEV">
+              <audio preload="none" src="previews/track9.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 10" data-artist="CAEV">
+              <audio preload="none" src="previews/track10.mp3" controls></audio>
+            </div>
+            <div class="track" data-title="Track 11" data-artist="CAEV">
+              <audio preload="none" src="previews/track11.mp3" controls></audio>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <br/><br/><br/><br/><br/>
     <section id="event">
