@@ -49,7 +49,6 @@ body::before {
 }
 
 .music-player {
-  background: rgba(0, 0, 0, 0.5);
   border: none;
   border-radius: 12px;
   padding: 40px 20px;
@@ -112,7 +111,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 80%, rgba(0, 0, 0, 0) 100%);
   z-index: 1000;
   padding: 20px 0;
   display: flex;
@@ -156,7 +155,6 @@ header {
 
 .release-party-container,
 .shopify-container {
-  background: rgba(0, 0, 0, 0.5);
   border: none;
   border-radius: 12px;
   margin: 40px auto;
