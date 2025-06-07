@@ -1,79 +1,51 @@
-function purchaseAlbum() {
-  alert("Redirecting to payment... (Stripe integration placeholder)");
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const allAudio = document.querySelectorAll('audio');
-  allAudio.forEach(audio => {
-    audio.addEventListener('play', () => {
-      allAudio.forEach(other => {
-        if (other !== audio) {
-          other.pause();
-        }
-      });
-    });
-  });
-});
-
+<script>
 const tracks = [
-  "track1.mp3", "track2.mp3", "track3.mp3", "track4.mp3", "track5.mp3",
-  "track6.mp3", "track7.mp3", "track8.mp3", "track9.mp3", "track10.mp3", "track11.mp3"
+  { title: "Track 1", artist: "CAEV", src: "previews/track1.mp3", duration: "0:30" },
+  { title: "Track 2", artist: "CAEV", src: "previews/track2.mp3", duration: "0:30" },
+  // ... Add all tracks here
 ];
 let currentTrack = 0;
-let audio = new Audio(`previews/${tracks[currentTrack]}`);
-let isPlaying = false;
+let audio = new Audio(tracks[currentTrack].src);
 
-const playPauseBtn = document.getElementById("playPauseBtn");
-const progressBar = document.getElementById("progressBar");
-const trackList = document.getElementById("trackList");
+const trackListEl = document.getElementById('trackList');
+const progressFill = document.getElementById('progressFill');
 
-// Generate track list display
-tracks.forEach((track, i) => {
-  const div = document.createElement("div");
-  div.className = "track";
-  div.innerHTML = `
-    <div class="track-info"><span>Track ${i + 1}</span><span>CAEV</span></div>
+tracks.forEach((track, index) => {
+  const el = document.createElement('div');
+  el.className = "track";
+  el.innerHTML = `
+    <div class="track-info">
+      <span>${track.title}</span>
+      <span>${track.duration}</span>
+    </div>
   `;
-  trackList.appendChild(div);
+  el.onclick = () => playTrack(index);
+  trackListEl.appendChild(el);
 });
 
-// Controls
-function togglePlayPause() {
-  if (isPlaying) {
-    audio.pause();
-    playPauseBtn.textContent = "▶️";
-  } else {
-    audio.play();
-    playPauseBtn.textContent = "⏸️";
-  }
-  isPlaying = !isPlaying;
+function playTrack(index) {
+  currentTrack = index;
+  audio.src = tracks[index].src;
+  audio.play();
+}
+
+function togglePlay() {
+  if (audio.paused) audio.play();
+  else audio.pause();
 }
 
 function nextTrack() {
-  audio.pause();
   currentTrack = (currentTrack + 1) % tracks.length;
-  audio = new Audio(`previews/${tracks[currentTrack]}`);
-  audio.play();
-  playPauseBtn.textContent = "⏸️";
-  isPlaying = true;
+  playTrack(currentTrack);
 }
 
 function prevTrack() {
-  audio.pause();
   currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
-  audio = new Audio(`previews/${tracks[currentTrack]}`);
-  audio.play();
-  playPauseBtn.textContent = "⏸️";
-  isPlaying = true;
+  playTrack(currentTrack);
 }
 
-audio.addEventListener("timeupdate", () => {
+audio.ontimeupdate = () => {
   const percent = (audio.currentTime / audio.duration) * 100;
-  progressBar.value = percent || 0;
-});
-
-progressBar.addEventListener("input", () => {
-  const seekTime = (progressBar.value / 100) * audio.duration;
-  audio.currentTime = seekTime;
-});
-
+  progressFill.style.width = percent + "%";
+};
+</script>
