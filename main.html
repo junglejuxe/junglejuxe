@@ -4,361 +4,71 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAEV - Jungle Juxe (2025)</title>
+  <title>JungleJuixe Main</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/player.css" />
 </head>
 <body>
-<header class="floating-header">
-  <div class="header-inner">
-    <img src="assets/header_logo.png" class="header-logo" alt="JungleJuixe Logo" />
-    <nav class="main-nav">
-      <a href="#album">ALBUM</a>
-      <a href="#event">EVENT</a>
-      <a href="#store">STORE</a>
-    </nav>
-  </div>
-</header>
-  <main><br/><br/><br/><br/><br/><br/><br/><br/>
-    <div class="player-container" id="album">
-      <div class="player-header">
-        <div class="album-header">
-          <img src="assets/COVER_ART.jpeg" alt="Album Art" class="album-art"/>
-          <div class="album-info">
-            <h1>JungleJuxe</h1>
-            <p>by CAEV</p>
-            <p class="note">Preview: 30s per track</p>
-          </div>
-        </div>
-        <button class="purchase-btn-top" onclick="purchaseAlbum()">Buy $10.99</button>
+  <header class="floating-header">
+    <div class="header-inner">
+      <img src="assets/header_logo.png" class="header-logo" />
+      <nav class="main-nav">
+        <a href="#album">ALBUM</a>
+        <a href="#event">EVENT</a>
+        <a href="#store">STORE</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="album">
+      <div class="music-player">
+        <img src="assets/COVER_ART.jpeg" class="album-cover" />
+        <h2>JungleJuixe by CAEV</h2>
+        <p>30-second previews below</p>
+
+        <audio controls src="previews/track1.mp3"></audio>
+        <audio controls src="previews/track2.mp3"></audio>
+        <audio controls src="previews/track3.mp3"></audio>
+        <audio controls src="previews/track4.mp3"></audio>
+        <audio controls src="previews/track5.mp3"></audio>
+        <audio controls src="previews/track6.mp3"></audio>
+        <audio controls src="previews/track7.mp3"></audio>
+        <audio controls src="previews/track8.mp3"></audio>
+        <audio controls src="previews/track9.mp3"></audio>
+        <audio controls src="previews/track10.mp3"></audio>
+        <audio controls src="previews/track11.mp3"></audio>
+
+        <p><strong>Buy full album to unlock all tracks + download</strong></p>
       </div>
-      <div class="track-scroll-container">
-        <div class="track-list">
+    </section>
 
-          <div class="track">
-            <div class="track-info">
-              <span>Track 1</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track1.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 2</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track2.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 3</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track3.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 4</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track4.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 5</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track5.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 6</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track6.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 7</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track7.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 8</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track8.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 9</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track9.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 10</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track10.mp3"></audio>
-          </div>
-
-          <div class="track">
-            <div class="track-info">
-              <span>Track 11</span>
-              <span>CAEV</span>
-            </div>
-            <audio controls preload="none" src="previews/track11.mp3"></audio>
-          </div>
-
+    <section id="event">
+      <div class="release-party-container">
+        <h2 class="release-title">JUNGLEJUIXE RELEASE PARTY</h2>
+        <div class="release-video-wrapper">
+          <video class="release-video" controls src="assets/release_party.mp4" poster="assets/COVER_ART.jpeg"></video>
+        </div>
+        <div class="ticket-link">
+          <a href="https://www.eventbrite.com/e/mass-represent-tickets-1308546681349" target="_blank">
+            <button>GET TICKETS</button>
+          </a>
         </div>
       </div>
-      <div class="unlock-banner">
-        <p>Unlock full album for $10.99</p>
-        <button onclick="purchaseAlbum()">Purchase via Stripe</button>
+    </section>
+
+    <section id="store">
+      <div class="shopify-container">
+        <h2 class="shopify-title">MERCH & PRODUCTS</h2>
+        <div id="shopify-embed">
+          <!-- Shopify Buy Button script goes here -->
+        </div>
       </div>
-    </div>
+    </section>
 
-<div class="release-party-container" id="event">
-  <h2 class="release-title">JUNGLE JUXE ALBUM RELEASE PARTY</h2>
-  <div class="release-video-wrapper">
-    <video class="release-video" id="releaseVideo" src="assets/jj_party.mp4" playsinline preload="auto" muted></video>
-  </div>
-  <div class="ticket-link">
-    <a href="https://posh.vip/e/junglejuxe-release-party-1" target="_blank">
-      <button>Get Tickets</button>
-    </a>
-  </div>
-</div>
-<script>
-  // Scroll-triggered video play
-  const video = document.getElementById('releaseVideo');
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        video.play();
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.7 });
-  observer.observe(video);
-</script>
-
-    
-    <div class="shopify-container" id="store">
-      <h2>Merch & Products</h2>
-      <div id="shopify-embed"><div id='collection-component-1748292361713'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xvpav0-s3.myshopify.com',
-      storefrontAccessToken: '739f2f97a9537660c80a18fe33999d00',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('collection', {
-        id: '511679234362',
-        node: document.getElementById('collection-component-1748292361713'),
-        moneyFormat: '%24%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px",
-          "width": "calc(25% - 20px)"
-        },
-        "img": {
-          "height": "calc(100% - 15px)",
-          "position": "absolute",
-          "left": "0",
-          "right": "0",
-          "top": "0"
-        },
-        "imgWrapper": {
-          "padding-top": "calc(75% + 15px)",
-          "position": "relative",
-          "height": "0"
-        }
-      },
-      "title": {
-        "color": "#d0ffc0"
-      },
-      "button": {
-        "font-weight": "bold",
-        "color": "#3e019a",
-        ":hover": {
-          "color": "#3e019a",
-          "background-color": "#bbe6ad"
-        },
-        "background-color": "#d0ffc0",
-        ":focus": {
-          "background-color": "#bbe6ad"
-        }
-      },
-      "price": {
-        "color": "#d0ffc0"
-      },
-      "compareAt": {
-        "color": "#d0ffc0"
-      },
-      "unitPrice": {
-        "color": "#d0ffc0"
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-weight": "bold",
-        "color": "#3e019a",
-        ":hover": {
-          "color": "#3e019a",
-          "background-color": "#bbe6ad"
-        },
-        "background-color": "#d0ffc0",
-        ":focus": {
-          "background-color": "#bbe6ad"
-        }
-      },
-      "title": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "bold",
-        "font-size": "26px",
-        "color": "#4c4c4c"
-      },
-      "price": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "18px",
-        "color": "#4c4c4c"
-      },
-      "compareAt": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "15.299999999999999px",
-        "color": "#4c4c4c"
-      },
-      "unitPrice": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "15.299999999999999px",
-        "color": "#4c4c4c"
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-weight": "bold",
-        "color": "#3e019a",
-        ":hover": {
-          "color": "#3e019a",
-          "background-color": "#bbe6ad"
-        },
-        "background-color": "#d0ffc0",
-        ":focus": {
-          "background-color": "#bbe6ad"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    }
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-weight": "bold",
-        "background-color": "#d0ffc0",
-        ":hover": {
-          "background-color": "#bbe6ad"
-        },
-        ":focus": {
-          "background-color": "#bbe6ad"
-        }
-      },
-      "count": {
-        "color": "#3e019a",
-        ":hover": {
-          "color": "#3e019a"
-        }
-      },
-      "iconPath": {
-        "fill": "#3e019a"
-      }
-    }
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script></div>
-    </div>
+    <footer class="site-footer">
+      &copy; 2025 JungleJuixe. All rights reserved.
+    </footer>
   </main>
 
   <script src="js/player.js"></script>
