@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -28,6 +29,7 @@ body::before {
   pointer-events: none;
 }
 
+/* Index Page Email Wall Wrapper for vertical center */
 .email-wall-wrapper {
   display: flex;
   justify-content: center;
@@ -56,7 +58,6 @@ body::before {
   max-width: 400px;
   box-shadow: 0 0 5px #1d3d0f;
 }
-
 
 .logo {
   width: 90%;
@@ -94,17 +95,6 @@ button:hover {
   background: #59a326;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
-}
-.top-left, .top-right {
-  height: 70px;         /* You can adjust this to 60, 80, etc. */
-  max-height: 15vh;     /* Optional: makes it responsive on smaller screens */
-}
-
 .album-cover {
   width: 90%;
   max-width: 400px;
@@ -128,7 +118,57 @@ header {
   background: #59a326;
 }
 
-.release-party-container {
+/* Floating Header */
+.floating-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1000;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Centered contents in header */
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header-logo {
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+.main-nav a {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 0.75em;
+  color: #d0ffc0;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+.main-nav a:hover {
+  color: #59a326;
+}
+
+/* Shared Styles for Release Party & Shopify */
+.release-party-container,
+.shopify-container {
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid #3e019a;
   border-radius: 12px;
@@ -139,7 +179,8 @@ header {
   color: #d0ffc0;
 }
 
-.release-title {
+.release-title,
+.shopify-title {
   font-size: 1.6em;
   margin-bottom: 20px;
   color: #b6ff9c;
@@ -168,76 +209,20 @@ header {
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 .ticket-link button:hover {
   background: #59a326;
 }
-.shopify-container {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #3e019a;
-  border-radius: 12px;
-  margin: 40px auto;
-  padding: 30px 20px;
-  max-width: 800px;
-  box-shadow: 0 0 10px #1d3d0f;
-  color: #d0ffc0;
-}
 
-.shopify-title {
-  font-size: 1.6em;
-  margin-bottom: 20px;
-  color: #b6ff9c;
-}
-
-.floating-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 80%, rgba(0, 0, 0, 0) 100%);
-  z-index: 1000;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-}
-
-
-.header-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Footer */
+.site-footer {
   text-align: center;
+  padding: 20px;
+  color: #7dd87f;
+  font-size: 0.85em;
+  margin-top: 60px;
 }
 
-.header-logo {
-  height: 100px;
-  margin-bottom: 10px;
-}
-
-.main-nav {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
-  margin-bottom: 40px; /* ⬅️ Add this line to create space below nav */
-}
-
-.main-nav a {
-  font-family: 'Orbitron', Arial, sans-serif;
-  font-size: 0.75em;
-  color: #d0ffc0;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: color 0.2s ease;
-}
-
-.main-nav a:hover {
-  color: #59a326;
-}
-
-/* Prevent overlap with scrolling */
+/* Anchor offset scroll fix */
 #album, #event, #store {
   scroll-margin-top: 180px;
 }
