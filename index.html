@@ -42,28 +42,28 @@
 
   // Form submit handler
   function submitEmail(event) {
-    event.preventDefault();
-    const emailInput = document.getElementById("emailInput");
-    const email = emailInput.value.trim();
+  event.preventDefault();
+  const emailInput = document.getElementById("emailInput");
+  const email = emailInput.value.trim();
 
-    if (!email) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    db.collection("emails").add({
-      email: email,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    })
-    .then(() => {
-      alert("Thanks for signing up!");
-      emailInput.value = "";
-    })
-    .catch((error) => {
-      console.error("Error saving email:", error);
-      alert("Something went wrong. Please try again later.");
-    });
+  if (!email) {
+    alert("Please enter a valid email address.");
+    return;
   }
+
+  db.collection("emails").add({
+    email: email,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(() => {
+    window.location.href = "main.html";  // 👈 redirect after success
+  })
+  .catch((error) => {
+    console.error("Error saving email:", error);
+    alert("Something went wrong. Please try again later.");
+  });
+}
+
 </script>
 
 </body>
