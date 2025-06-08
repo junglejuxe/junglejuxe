@@ -10,61 +10,60 @@
 <body>
   <div class="email-wall-wrapper">
     <div class="email-wall">
-      <img src="assets/header_logo.png" alt="JungleJuxe Logo" class="logo" />
+      <video class="logo" src="assets/caev_jungle.mp4" autoplay muted playsinline onended="this.pause(); this.currentTime = this.duration;" preload="auto"></video>
 
       <form onsubmit="submitEmail(event)">
-  <input type="email" id="emailInput" placeholder="Enter your email" required />
-  <button type="submit">Enter</button>
-</form>
+        <input type="email" id="emailInput" placeholder="Enter your email" required />
+        <button type="submit">Enter</button>
+      </form>
 
       <p id="emailFeedback"></p>
     </div>
   </div>
-<!-- Firebase Scripts -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
 
-<script>
-  // Your Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyCsh8EAZvb3d0SbxlLX7gu_ifcDzHywZj4",
-    authDomain: "junglejuxe-2ab83.firebaseapp.com",
-    projectId: "junglejuxe-2ab83",
-    storageBucket: "junglejuxe-2ab83.firebasestorage.app",
-    messagingSenderId: "249789034877",
-    appId: "1:249789034877:web:f955419c53d00cd62f1c14",
-    measurementId: "G-N4TB55X911"
-  };
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCsh8EAZvb3d0SbxlLX7gu_ifcDzHywZj4",
+      authDomain: "junglejuxe-2ab83.firebaseapp.com",
+      projectId: "junglejuxe-2ab83",
+      storageBucket: "junglejuxe-2ab83.firebasestorage.app",
+      messagingSenderId: "249789034877",
+      appId: "1:249789034877:web:f955419c53d00cd62f1c14",
+      measurementId: "G-N4TB55X911"
+    };
 
-  // Form submit handler
-  function submitEmail(event) {
-  event.preventDefault();
-  const emailInput = document.getElementById("emailInput");
-  const email = emailInput.value.trim();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-  if (!email) {
-    alert("Please enter a valid email address.");
-    return;
-  }
+    // Submit email function
+    function submitEmail(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById("emailInput");
+      const email = emailInput.value.trim();
 
-  db.collection("emails").add({
-    email: email,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  })
-  .then(() => {
-    window.location.href = "main.html";  // 👈 redirect after success
-  })
-  .catch((error) => {
-    console.error("Error saving email:", error);
-    alert("Something went wrong. Please try again later.");
-  });
-}
+      if (!email) {
+        alert("Please enter a valid email address.");
+        return;
+      }
 
-</script>
-
+      db.collection("emails").add({
+        email: email,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(() => {
+        window.location.href = "main.html"; // Redirect on success
+      })
+      .catch((error) => {
+        console.error("Error saving email:", error);
+        alert("Something went wrong. Please try again later.");
+      });
+    }
+  </script>
 </body>
 </html>
