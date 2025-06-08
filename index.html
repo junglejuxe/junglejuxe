@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAEV - Jungle Juxe (2025)</title>
+  <title>JungleJuxe Access</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div class="email-wall-wrapper">
     <div class="email-wall">
-      <video class="logo" src="assets/caev_jungle.mp4" autoplay muted playsinline onended="this.pause(); this.currentTime = this.duration;" preload="auto"></video>
-      <h1>ENTER EMAIL FOR ACCESS</h1>
-      <input type="email" id="userEmail" placeholder="your@email.com" />
-      <button onclick="grantAccess()">Enter</button>
+      <img src="assets/header_logo.png" alt="JungleJuxe Logo" class="logo" />
+
+      <form id="emailForm">
+        <input type="email" id="emailInput" placeholder="Enter your email" required />
+        <button type="submit">Unlock</button>
+      </form>
+      <p id="emailFeedback"></p>
     </div>
   </div>
-  <footer class="site-footer">Lost & Found Records &trade;<br/>
-      &copy; 2025 JungleJuxe. All rights reserved.</footer>
-  <script src="js/script.js"></script>
+
+  <!-- Firebase Setup -->
+  <script type="module">
+    // Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+ const firebaseConfig = {
+  apiKey: "AIzaSyCsh8EAZvb3d0SbxlLX7gu_ifcDzHywZj4",
+  authDomain: "junglejuxe-2ab83.firebaseapp.com",
+  projectId: "junglejuxe-2ab83",
+  storageBucket: "junglejuxe-2ab83.firebasestorage.app",
+  messagingSenderId: "249789034877",
+  appId: "1:249789034877:web:f955419c53d00cd62f1c14",
+  measurementId: "G-N4TB55X911"
+};
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById("emailForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const email = document.getElementById("emailInput").value;
+
+      try {
+        await addDoc(collection(db, "emails"), {
+          email: email,
+          timestamp: new Date()
+        });
+        localStorage.setItem("userEmail", email);
+        document.getElementById("emailFeedback").textContent = "You're in!";
+        setTimeout(() => {
+          window.location.href = "main.html";
+        }, 1000);
+      } catch (error) {
+        console.error("Error saving email: ", error);
+        document.getElementById("emailFeedback").textContent = "Something went wrong. Try again.";
+      }
+    });
+  </script>
 </body>
 </html>
