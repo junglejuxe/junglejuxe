@@ -1,108 +1,162 @@
-const audioPlayer = document.getElementById('audio-player');
-const playPauseBtn = document.getElementById('playPauseBtn');
-const progressFill = document.getElementById('progressFill');
-const trackListContainer = document.getElementById('trackList');
+const audioPlayer = new Audio();
+const playPauseBtn = document.getElementById("playPauseBtn");
+const progress = document.getElementById("progress");
+const currentTimeEl = document.getElementById("currentTime");
+const durationEl = document.getElementById("duration");
+const trackListContainer = document.getElementById("trackList");
 
-const songs = [
-  'full/song1.mp3',
-  'full/song2.mp3',
-  'full/song3.mp3',
-  'full/song4.mp3',
-  'full/song5.mp3',
-  'full/song6.mp3',
-  'full/song7.mp3',
-  'full/song8.mp3',
-  'full/song9.mp3',
-  'full/song10.mp3',
-  'full/song11.mp3'
+const tracks = [
+  {
+    title: "1. IT’S GOING DOWN",
+    file: "previews/song1.mp3"
+  },
+  {
+    title: "2. PROPER",
+    file: "previews/song2.mp3"
+  },
+  {
+    title: "3. GOGOCLUB",
+    file: "previews/song3.mp3"
+  },
+  {
+    title: "4. NECK BACK",
+    file: "previews/song4.wav"
+  },
+  {
+    title: "5. MY MONEY FT. NIKO VALID",
+    file: "previews/song5.mp3"
+  },
+  {
+    title: "6. JHE’S INTERLUDE (DUTTY BWOY)",
+    file: "previews/song6.mp3"
+  },
+  {
+    title: "7.  UUU KNOW ILOVEUUU",
+    file: "previews/song7.mp3"
+  },
+  {
+    title: "8. CAUGHT A PLAY FT. DONALD GRUNGE",
+    file: "previews/song8.mp3"
+  },
+  {
+    title: "9. NO SLOW MOTION",
+    file: "previews/song9.mp3"
+  },
+  {
+    title: "10. SWAG SURFIN",
+    file: "previews/song10.m4a"
+  },
+  {
+    title: "11. STAND ON IT",
+    file: "previews/song9.mp3"
+  },
+  {
+    title: "12. LOW TIDES",
+    file: "previews/song9.mp3"
+  }
 ];
 
-const songTitles = [
-  'Track 1',
-  'Track 2',
-  'Track 3',
-  'Track 4',
-  'Track 5',
-  'Track 6',
-  'Track 7',
-  'Track 8',
-  'Track 9',
-  'Track 10',
-  'Track 11'
-];
-
-let currentSongIndex = 0;
+let currentTrackIndex = 0;
 let isPlaying = false;
 
-function loadTrack(index) {
-  audioPlayer.src = songs[index];
-  updateTrackListHighlight();
+// Load and display tracklist
+function renderTrackList() {
+  trackListContainer.innerHTML = "";
+  tracks.forEach((track, index) => {
+    const trackEl = document.createElement("div");
+    trackEl.classList.add("track");
+    trackEl.setAttribute("data-title", track.title);
+    trackEl.setAttribute("data-artist", "CAEV");
+    if (index === currentTrackIndex) {
+      trackEl.style.backgroundColor = "#1d3d0f";
+    }
+    trackEl.addEventListener("click", () => {
+      currentTrackIndex = index;
+      loadTrack(currentTrackIndex);
+      playTrack();
+    });
+    trackListContainer.appendChild(trackEl);
+  });
 }
 
-function togglePlayPause() {
-  if (audioPlayer.paused) {
-    audioPlayer.play();
-    isPlaying = true;
-    playPauseBtn.textContent = '⏸';
+// Load track by index
+function loadTrack(index) {
+  audioPlayer.src = tracks[index].file;
+  highlightCurrentTrack();
+}
+
+// Play the current track
+function playTrack() {
+  audioPlayer.play();
+  isPlaying = true;
+  playPauseBtn.textContent = "⏸";
+}
+
+// Pause playback
+function pauseTrack() {
+  audioPlayer.pause();
+  isPlaying = false;
+  playPauseBtn.textContent = "▶️";
+}
+
+// Toggle play/pause
+function togglePlay() {
+  if (isPlaying) {
+    pauseTrack();
   } else {
-    audioPlayer.pause();
-    isPlaying = false;
-    playPauseBtn.textContent = '▶️';
+    playTrack();
   }
 }
 
+// Next track
 function nextTrack() {
-  currentSongIndex = (currentSongIndex + 1) % songs.length;
-  loadTrack(currentSongIndex);
-  if (isPlaying) audioPlayer.play();
+  currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+  loadTrack(currentTrackIndex);
+  playTrack();
 }
 
+// Previous track
 function prevTrack() {
-  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-  loadTrack(currentSongIndex);
-  if (isPlaying) audioPlayer.play();
+  currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+  loadTrack(currentTrackIndex);
+  playTrack();
 }
 
-function updateProgress() {
-  const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-  progressFill.style.width = progress + '%';
-}
-
-function updateTrackListHighlight() {
-  const trackItems = document.querySelectorAll('.track');
-  trackItems.forEach((item, idx) => {
-    if (idx === currentSongIndex) {
-      item.style.fontWeight = 'bold';
-      item.style.color = '#b6ff9c';
-    } else {
-      item.style.fontWeight = 'normal';
-      item.style.color = '';
-    }
+// Highlight current track in list
+function highlightCurrentTrack() {
+  const trackEls = document.querySelectorAll(".track");
+  trackEls.forEach((el, idx) => {
+    el.style.backgroundColor = idx === currentTrackIndex ? "#1d3d0f" : "rgba(0,0,0,0.4)";
   });
 }
 
-function renderTrackList() {
-  trackListContainer.innerHTML = '';
-  songs.forEach((song, index) => {
-    const trackItem = document.createElement('div');
-    trackItem.className = 'track';
-    trackItem.setAttribute('data-title', songTitles[index]);
-    trackItem.setAttribute('data-artist', 'CAEV');
-    trackItem.textContent = songTitles[index];
-    trackItem.onclick = () => {
-      currentSongIndex = index;
-      loadTrack(index);
-      audioPlayer.play();
-      isPlaying = true;
-      playPauseBtn.textContent = '⏸';
-    };
-    trackListContainer.appendChild(trackItem);
-  });
+// Progress bar update
+audioPlayer.addEventListener("timeupdate", () => {
+  const current = audioPlayer.currentTime;
+  const duration = audioPlayer.duration;
+  progress.value = (current / duration) * 100;
+  currentTimeEl.textContent = formatTime(current);
+  durationEl.textContent = formatTime(duration);
+});
+
+// Seek
+progress.addEventListener("input", () => {
+  const duration = audioPlayer.duration;
+  audioPlayer.currentTime = (progress.value / 100) * duration;
+});
+
+// Format time
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
-// Initial setup
+// Auto play next track
+audioPlayer.addEventListener("ended", () => {
+  nextTrack();
+});
+
+// Initialize
 renderTrackList();
-loadTrack(currentSongIndex);
-
-audioPlayer.addEventListener('timeupdate', updateProgress);
-audioPlayer.addEventListener('ended', nextTrack);
+loadTrack(currentTrackIndex);
