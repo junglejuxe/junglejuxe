@@ -37,6 +37,7 @@ body::before {
   height: 100vh;
   padding: 40px 20px;
   box-sizing: border-box;
+  background-color: black;
 }
 
 .email-wall {
