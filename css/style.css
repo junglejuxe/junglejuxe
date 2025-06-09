@@ -37,7 +37,6 @@ body::before {
   height: 100vh;
   padding: 40px 20px;
   box-sizing: border-box;
-  background-color: black;
 }
 
 .email-wall {
@@ -46,6 +45,7 @@ body::before {
   padding: 40px 20px;
   margin: 40px auto;
   max-width: 400px;
+  background-color: black;
 }
 
 .music-player {
