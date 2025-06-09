@@ -20,34 +20,32 @@
     </div>
   </header>
 
-  <main><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <main><br/><br/><br/><br/><br/>
     <section id="album">
-      <div class="player-container">
-        <div class="album-info">
-          <img src="assets/COVER_ART.jpeg" alt="Album Art" class="album-art">
-          <h1>JungleJuxe</h1>
-          <p>by CAEV</p>
+      <div id="jukebox">
+        <h1>JungleJuxe</h1>
+        <div id="song-info">
+          <p id="song-title">by CAEV</p>
         </div>
-
-        <div class="player-controls">
+        <div id="player-controls">
           <button onclick="prevTrack()">⏮</button>
           <button onclick="togglePlay()" id="playPauseBtn">▶️</button>
           <button onclick="nextTrack()">⏭</button>
         </div>
 
-        <div class="progress-bar">
+        <div id="progress-container">
           <span id="currentTime">0:00</span>
           <input type="range" id="progress" value="0" min="0" max="100">
           <span id="duration">0:00</span>
         </div>
 
-        <div class="track-list" id="trackList">
-          <!-- Tracks will be injected by JS -->
+        <div id="upcoming-songs">
+          <h3>Tracklist</h3>
+          <ul id="song-list"></ul>
         </div>
       </div>
     </section>
 
-    <br/><br/><br/><br/><br/>
     <section id="event">
       <div class="release-video-wrapper">
         <video class="release-video" id="releaseVideo" src="assets/jj_party.mp4" autoplay muted loop playsinline preload="auto">
@@ -62,10 +60,9 @@
     </section>
 
     <section id="store">
-      <div class="shopify-container" id="store">
+      <div class="shopify-container">
         <h2>Merch & Products</h2>
         <div id='collection-component-1748292361713'></div>
-        <!-- Shopify Buy Button Script here (unchanged) -->
       </div>
     </section>
 
