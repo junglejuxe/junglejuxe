@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JungleJuxe Main</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/player.css" />
 </head>
@@ -19,42 +19,31 @@
       </nav>
     </div>
   </header>
+
   <main><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     <section id="album">
       <div class="player-container">
-        <h1>JUNGLEJUXE</h1>
-        <p>by CAEV</p>
-
-        <div id="player-controls">
-          <button id="play-pause">⏯ PLAY</button>
-          <button id="next-song">⏭ NEXT</button>
+        <div class="album-info">
+          <img src="assets/COVER_ART.jpeg" alt="Album Art" class="album-art">
+          <h1>JungleJuxe</h1>
+          <p>by CAEV</p>
         </div>
 
-        <div id="volume-container">
-          <label for="volume-control">Volume:</label>
-          <input type="range" id="volume-control" min="0" max="100" value="80">
+        <div class="player-controls">
+          <button onclick="prevTrack()">⏮</button>
+          <button onclick="togglePlay()" id="playPauseBtn">▶️</button>
+          <button onclick="nextTrack()">⏭</button>
         </div>
 
-        <div id="progress-container">
-          <span id="current-time">0:00</span>
-          <input type="range" id="progress-bar" value="0" min="0" max="100" step="0.1">
-          <span id="duration-time">0:00</span>
+        <div class="progress-bar">
+          <span id="currentTime">0:00</span>
+          <input type="range" id="progress" value="0" min="0" max="100">
+          <span id="duration">0:00</span>
         </div>
 
-        <div id="daily-limit">
-          <p>SONGS PLAYED TODAY: <span id="plays-count">0</span>/10</p>
+        <div class="track-list" id="trackList">
+          <!-- Tracks will be injected by JS -->
         </div>
-
-        <div id="thank-you-message" style="display:none;">
-          <p>Thank you for listening, come back again tomorrow. - CAEV</p>
-        </div>
-
-        <div id="upcoming-songs">
-          <h3>Tracklist</h3>
-          <ul id="song-list"></ul>
-        </div>
-
-        <audio id="audio-player" hidden></audio>
       </div>
     </section>
 
@@ -76,7 +65,7 @@
       <div class="shopify-container" id="store">
         <h2>Merch & Products</h2>
         <div id='collection-component-1748292361713'></div>
-        <!-- Shopify embed remains unchanged -->
+        <!-- Shopify Buy Button Script here (unchanged) -->
       </div>
     </section>
 
