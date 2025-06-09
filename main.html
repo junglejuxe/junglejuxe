@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JungleJuxe Main</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/player.css" />
 </head>
 <body>
+  <!-- Floating Header -->
   <header class="floating-header">
     <div class="header-inner">
       <img src="assets/header_logo.png" class="header-logo" />
@@ -20,28 +21,32 @@
     </div>
   </header>
 
-  <main><br/><br/><br/><br/><br/>
+  <!-- Main Content -->
+  <main style="margin-top: 120px;">
     <section id="album">
-      <div id="jukebox">
-        <h1>JungleJuxe</h1>
-        <div id="song-info">
-          <p id="song-title">by CAEV</p>
-        </div>
-        <div id="player-controls">
-          <button onclick="prevTrack()">⏮</button>
-          <button onclick="togglePlay()" id="playPauseBtn">▶️</button>
-          <button onclick="nextTrack()">⏭</button>
-        </div>
+      <div class="player-wrapper">
+        <div class="player-container">
+          <div class="album-info">
+            <img src="assets/COVER_ART.jpeg" alt="Album Art" class="album-art" />
+            <h1>JungleJuxe</h1>
+            <p>by CAEV</p>
+          </div>
 
-        <div id="progress-container">
-          <span id="currentTime">0:00</span>
-          <input type="range" id="progress" value="0" min="0" max="100">
-          <span id="duration">0:00</span>
-        </div>
+          <div class="player-controls">
+            <button onclick="prevTrack()">⏮</button>
+            <button onclick="togglePlay()" id="playPauseBtn">▶️</button>
+            <button onclick="nextTrack()">⏭</button>
+          </div>
 
-        <div id="upcoming-songs">
-          <h3>Tracklist</h3>
-          <ul id="song-list"></ul>
+          <div class="progress-bar">
+            <span id="currentTime">0:00</span>
+            <input type="range" id="progress" value="0" min="0" max="100">
+            <span id="duration">0:00</span>
+          </div>
+
+          <div class="track-list" id="trackList">
+            <!-- Injected by JS -->
+          </div>
         </div>
       </div>
     </section>
@@ -59,19 +64,218 @@
       </div>
     </section>
 
-    <section id="store">
-      <div class="shopify-container">
-        <h2>Merch & Products</h2>
-        <div id='collection-component-1748292361713'></div>
-      </div>
+        <section id="store">
+      <div class="shopify-container" id="store">
+<h2>Merch & Products</h2>
+<div id="shopify-embed"><div id='collection-component-1748292361713'></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+(function () {
+var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+if (window.ShopifyBuy) {
+if (window.ShopifyBuy.UI) {
+ShopifyBuyInit();
+} else {
+loadScript();
+}
+} else {
+loadScript();
+}
+function loadScript() {
+var script = document.createElement('script');
+script.async = true;
+script.src = scriptURL;
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+script.onload = ShopifyBuyInit;
+}
+function ShopifyBuyInit() {
+var client = ShopifyBuy.buildClient({
+domain: 'xvpav0-s3.myshopify.com',
+storefrontAccessToken: '739f2f97a9537660c80a18fe33999d00',
+});
+ShopifyBuy.UI.onReady(client).then(function (ui) {
+ui.createComponent('collection', {
+id: '511679234362',
+node: document.getElementById('collection-component-1748292361713'),
+moneyFormat: '%24%7B%7Bamount%7D%7D',
+options: {
+"product": {
+"styles": {
+"product": {
+"@media (min-width: 601px)": {
+"max-width": "calc(25% - 20px)",
+"margin-left": "20px",
+"margin-bottom": "50px",
+"width": "calc(25% - 20px)"
+},
+"img": {
+"height": "calc(100% - 15px)",
+"position": "absolute",
+"left": "0",
+"right": "0",
+"top": "0"
+},
+"imgWrapper": {
+"padding-top": "calc(75% + 15px)",
+"position": "relative",
+"height": "0"
+}
+},
+"title": {
+"color": "#d0ffc0"
+},
+"button": {
+"font-weight": "bold",
+"color": "#3e019a",
+":hover": {
+"color": "#3e019a",
+"background-color": "#bbe6ad"
+},
+"background-color": "#d0ffc0",
+":focus": {
+"background-color": "#bbe6ad"
+}
+},
+"price": {
+"color": "#d0ffc0"
+},
+"compareAt": {
+"color": "#d0ffc0"
+},
+"unitPrice": {
+"color": "#d0ffc0"
+}
+},
+"text": {
+"button": "Add to cart"
+}
+},
+"productSet": {
+"styles": {
+"products": {
+"@media (min-width: 601px)": {
+"margin-left": "-20px"
+}
+}
+}
+},
+"modalProduct": {
+"contents": {
+"img": false,
+"imgWithCarousel": true,
+"button": false,
+"buttonWithQuantity": true
+},
+"styles": {
+"product": {
+"@media (min-width: 601px)": {
+"max-width": "100%",
+"margin-left": "0px",
+"margin-bottom": "0px"
+}
+},
+"button": {
+"font-weight": "bold",
+"color": "#3e019a",
+":hover": {
+"color": "#3e019a",
+"background-color": "#bbe6ad"
+},
+"background-color": "#d0ffc0",
+":focus": {
+"background-color": "#bbe6ad"
+}
+},
+"title": {
+"font-family": "Helvetica Neue, sans-serif",
+"font-weight": "bold",
+"font-size": "26px",
+"color": "#4c4c4c"
+},
+"price": {
+"font-family": "Helvetica Neue, sans-serif",
+"font-weight": "normal",
+"font-size": "18px",
+"color": "#4c4c4c"
+},
+"compareAt": {
+"font-family": "Helvetica Neue, sans-serif",
+"font-weight": "normal",
+"font-size": "15.299999999999999px",
+"color": "#4c4c4c"
+},
+"unitPrice": {
+"font-family": "Helvetica Neue, sans-serif",
+"font-weight": "normal",
+"font-size": "15.299999999999999px",
+"color": "#4c4c4c"
+}
+},
+"text": {
+"button": "Add to cart"
+}
+},
+"option": {},
+"cart": {
+"styles": {
+"button": {
+"font-weight": "bold",
+"color": "#3e019a",
+":hover": {
+"color": "#3e019a",
+"background-color": "#bbe6ad"
+},
+"background-color": "#d0ffc0",
+":focus": {
+"background-color": "#bbe6ad"
+}
+}
+},
+"text": {
+"total": "Subtotal",
+"button": "Checkout"
+}
+},
+"toggle": {
+"styles": {
+"toggle": {
+"font-weight": "bold",
+"background-color": "#d0ffc0",
+":hover": {
+"background-color": "#bbe6ad"
+},
+":focus": {
+"background-color": "#bbe6ad"
+}
+},
+"count": {
+"color": "#3e019a",
+":hover": {
+"color": "#3e019a"
+}
+},
+"iconPath": {
+"fill": "#3e019a"
+}
+}
+}
+},
+});
+});
+}
+})();
+/*]]>*/
+</script></div>
+</div>
     </section>
 
     <footer class="site-footer">
-      Lost & Found Records &trade;<br/>
+      Lost & Found Records &trade;<br />
       &copy; 2025 JungleJuxe. All rights reserved.
     </footer>
   </main>
 
+  <!-- Script -->
   <script src="js/player.js"></script>
 </body>
 </html>
