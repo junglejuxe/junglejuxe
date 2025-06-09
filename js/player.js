@@ -1,97 +1,108 @@
-const tracks = [
-  { title: "Track 1", artist: "CAEV", src: "previews/track1.mp3", duration: "0:30" },
-  { title: "Track 2", artist: "CAEV", src: "previews/track2.mp3", duration: "0:30" },
-  { title: "Track 3", artist: "CAEV", src: "previews/track3.mp3", duration: "0:30" },
-  { title: "Track 4", artist: "CAEV", src: "previews/track4.mp3", duration: "0:30" },
-  { title: "Track 5", artist: "CAEV", src: "previews/track5.mp3", duration: "0:30" },
-  { title: "Track 6", artist: "CAEV", src: "previews/track6.mp3", duration: "0:30" },
-  { title: "Track 7", artist: "CAEV", src: "previews/track7.mp3", duration: "0:30" },
-  { title: "Track 8", artist: "CAEV", src: "previews/track8.mp3", duration: "0:30" },
-  { title: "Track 9", artist: "CAEV", src: "previews/track9.mp3", duration: "0:30" },
-  { title: "Track 10", artist: "CAEV", src: "previews/track10.mp3", duration: "0:30" },
-  { title: "Track 11", artist: "CAEV", src: "previews/track11.mp3", duration: "0:30" }
+const audioPlayer = document.getElementById('audio-player');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressFill = document.getElementById('progressFill');
+const trackListContainer = document.getElementById('trackList');
+
+const songs = [
+  'full/song1.mp3',
+  'full/song2.mp3',
+  'full/song3.mp3',
+  'full/song4.mp3',
+  'full/song5.mp3',
+  'full/song6.mp3',
+  'full/song7.mp3',
+  'full/song8.mp3',
+  'full/song9.mp3',
+  'full/song10.mp3',
+  'full/song11.mp3'
 ];
 
-let currentTrackIndex = 0;
+const songTitles = [
+  'Track 1',
+  'Track 2',
+  'Track 3',
+  'Track 4',
+  'Track 5',
+  'Track 6',
+  'Track 7',
+  'Track 8',
+  'Track 9',
+  'Track 10',
+  'Track 11'
+];
+
+let currentSongIndex = 0;
 let isPlaying = false;
-const audio = new Audio(tracks[currentTrackIndex].src);
-
-const playBtn = document.querySelector(".player-controls button:nth-child(2)");
-const prevBtn = document.querySelector(".player-controls button:nth-child(1)");
-const nextBtn = document.querySelector(".player-controls button:nth-child(3)");
-const progressBar = document.getElementById("progressFill");
-const trackListContainer = document.getElementById("trackList");
-
-function renderTrackList() {
-  trackListContainer.innerHTML = "";
-  tracks.forEach((track, index) => {
-    const div = document.createElement("div");
-    div.classList.add("track");
-    div.dataset.index = index;
-    div.dataset.title = track.title;
-    div.dataset.artist = track.artist;
-    div.innerHTML = `
-      <div class="track-info">
-        <span>${track.title}</span>
-        <span>${track.duration}</span>
-      </div>
-    `;
-    div.addEventListener("click", () => {
-      loadTrack(index);
-      playTrack();
-    });
-    trackListContainer.appendChild(div);
-  });
-}
 
 function loadTrack(index) {
-  currentTrackIndex = index;
-  audio.src = tracks[index].src;
-  audio.load();
-  if (isPlaying) {
-    playTrack();
-  }
+  audioPlayer.src = songs[index];
+  updateTrackListHighlight();
 }
 
-function playTrack() {
-  audio.play();
-  isPlaying = true;
-  playBtn.textContent = "⏸️";
-}
-
-function pauseTrack() {
-  audio.pause();
-  isPlaying = false;
-  playBtn.textContent = "▶️";
-}
-
-function togglePlay() {
-  if (isPlaying) {
-    pauseTrack();
+function togglePlayPause() {
+  if (audioPlayer.paused) {
+    audioPlayer.play();
+    isPlaying = true;
+    playPauseBtn.textContent = '⏸';
   } else {
-    playTrack();
+    audioPlayer.pause();
+    isPlaying = false;
+    playPauseBtn.textContent = '▶️';
   }
-}
-
-function prevTrack() {
-  currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-  loadTrack(currentTrackIndex);
 }
 
 function nextTrack() {
-  currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-  loadTrack(currentTrackIndex);
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  loadTrack(currentSongIndex);
+  if (isPlaying) audioPlayer.play();
 }
 
-audio.addEventListener("timeupdate", () => {
-  const percent = (audio.currentTime / audio.duration) * 100;
-  progressBar.style.width = percent + "%";
-});
+function prevTrack() {
+  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+  loadTrack(currentSongIndex);
+  if (isPlaying) audioPlayer.play();
+}
 
-audio.addEventListener("ended", nextTrack);
+function updateProgress() {
+  const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+  progressFill.style.width = progress + '%';
+}
 
-playBtn.addEventListener("click", togglePlay);
-prevBtn.addEventListener("click", prevTrack);
-nextBtn.addEventListener("click", nextTrack);
+function updateTrackListHighlight() {
+  const trackItems = document.querySelectorAll('.track');
+  trackItems.forEach((item, idx) => {
+    if (idx === currentSongIndex) {
+      item.style.fontWeight = 'bold';
+      item.style.color = '#b6ff9c';
+    } else {
+      item.style.fontWeight = 'normal';
+      item.style.color = '';
+    }
+  });
+}
 
+function renderTrackList() {
+  trackListContainer.innerHTML = '';
+  songs.forEach((song, index) => {
+    const trackItem = document.createElement('div');
+    trackItem.className = 'track';
+    trackItem.setAttribute('data-title', songTitles[index]);
+    trackItem.setAttribute('data-artist', 'CAEV');
+    trackItem.textContent = songTitles[index];
+    trackItem.onclick = () => {
+      currentSongIndex = index;
+      loadTrack(index);
+      audioPlayer.play();
+      isPlaying = true;
+      playPauseBtn.textContent = '⏸';
+    };
+    trackListContainer.appendChild(trackItem);
+  });
+}
+
+// Initial setup
 renderTrackList();
+loadTrack(currentSongIndex);
+
+audioPlayer.addEventListener('timeupdate', updateProgress);
+audioPlayer.addEventListener('ended', nextTrack);
