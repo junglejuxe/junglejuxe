@@ -1,119 +1,112 @@
-
-/* player.css - Updated to match Caliph.Jukebox styling with JungleJuxe theme */
+/* player.css */
 
 .player-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(29, 29, 29, 0.8);
-  padding: 20px;
+  background-color: rgba(34, 34, 34, 0.5); /* translucent dark background */
   border-radius: 15px;
-  max-width: 400px;
-  margin: auto;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-  border: 2px solid #00f5ff;
-  color: #fff;
-  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  text-align: center;
+  width: 320px;
+  border: 3px solid #3c5f1e;
+  transition: 0.4s;
+  margin: 0 auto;
 }
 
+.player-container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 1);
+  transform: scale(1.05);
+}
+
+/* Album Info */
 .album-info {
-  text-align: center;
+  margin-bottom: 15px;
 }
 
 .album-art {
   width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .album-info h1 {
-  margin: 10px 0 0;
-  color: #00f5ff;
-  font-size: 24px;
-  text-shadow: 0 0 10px #00f5ff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  color: #c4ffbe;
+  margin: 5px 0;
 }
 
 .album-info p {
+  color: #a4e09a;
   font-size: 14px;
-  color: #ccc;
-  margin-bottom: 20px;
 }
 
-.player-controls {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
+/* Player Controls */
 .player-controls button {
-  background-color: #00f5ff;
+  background-color: #c4ffbe;
   border: none;
-  color: #1d1d1d;
-  font-size: 18px;
+  color: #222;
+  padding: 10px 15px;
   font-weight: bold;
-  padding: 8px 14px;
-  border-radius: 6px;
+  font-size: 18px;
+  margin: 5px;
+  border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 0 8px #00f5ff;
-  transition: 0.3s;
+  font-family: 'Orbitron', sans-serif;
+  transition: background 0.3s;
 }
 
 .player-controls button:hover {
-  background-color: #00c4ff;
+  background-color: #a4e09a;
 }
 
 .progress-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  margin-top: 15px;
   gap: 10px;
-  margin-bottom: 15px;
   color: #fff;
   font-size: 14px;
 }
 
-.progress-bar input[type="range"] {
-  flex-grow: 1;
-  height: 6px;
-  border-radius: 5px;
-  background: #666;
-  cursor: pointer;
+#progress {
   -webkit-appearance: none;
+  appearance: none;
+  width: 150px;
+  height: 8px;
+  border-radius: 5px;
+  background: #888;
+  outline: none;
+  cursor: pointer;
 }
 
-.progress-bar input[type="range"]::-webkit-slider-thumb {
+#progress::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 14px;
-  width: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: #00f5ff;
-  border: 2px solid #fff;
+  background: #c4ffbe;
+  border: 3px solid #fff;
+  cursor: pointer;
 }
 
 .track-list {
   margin-top: 20px;
-  width: 100%;
+  font-size: 12px;
+  text-align: left;
 }
 
 .track {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-left: 3px solid #00f5ff;
-  color: #fff;
-  padding: 8px 12px;
-  font-size: 13px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 10px;
   margin-bottom: 5px;
-  transition: 0.3s;
+  border-left: 3px solid #a4e09a;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  transition: background 0.2s;
   cursor: pointer;
 }
 
 .track:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.track.active {
-  background-color: #1d3d0f;
-  font-weight: bold;
-  color: #00f5ff;
+  background: rgba(60, 95, 30, 0.7);
 }
