@@ -1,16 +1,16 @@
 const tracks = [
-  { title: "1. IT’S GOING DOWN *preview*", file: "previews/song1.mp3" },
-  { title: "2. PROPER *preview*", file: "previews/song2.mp3" },
-  { title: "3. GOGOCLUB *preview*", file: "previews/song3.mp3" },
-  { title: "4. NECK BACK *preview*", file: "previews/song4.mp3" },
-  { title: "5. MY MONEY FT. NIKO VALID *preview*", file: "previews/song5.mp3" },
-  { title: "6. JHE’S INTERLUDE (DUTTY BWOY) *preview*", file: "previews/song6.mp3" },
-  { title: "7. UUU KNOW ILOVEUUU *preview*", file: "previews/song7.mp3" },
-  { title: "8. CAUGHT A PLAY FT. DONALD GRUNGE *preview*", file: "previews/song8.mp3" },
-  { title: "9. NO SLOW MOTION *preview*", file: "previews/song9.mp3" },
-  { title: "10. SWAG SURFIN *preview*", file: "previews/song10.mp3" },
-  { title: "11. STAND ON IT *preview*", file: "previews/song11.mp3" },
-  { title: "12. LOW TIDES *preview*", file: "previews/song12.mp3" }
+  { title: "1. IT’S GOING DOWN", file: "previews/song1.mp3" },
+  { title: "2. PROPER", file: "previews/song2.mp3" },
+  { title: "3. GOGOCLUB", file: "previews/song3.mp3" },
+  { title: "4. NECK BACK", file: "previews/song4.mp3" },
+  { title: "5. MY MONEY FT. NIKO VALID", file: "previews/song5.mp3" },
+  { title: "6. JHE’S INTERLUDE (DUTTY BWOY)", file: "previews/song6.mp3" },
+  { title: "7. UUU KNOW ILOVEUUU", file: "previews/song7.mp3" },
+  { title: "8. CAUGHT A PLAY FT. DONALD GRUNGE", file: "previews/song8.mp3" },
+  { title: "9. NO SLOW MOTION", file: "previews/song9.mp3" },
+  { title: "10. SWAG SURFIN", file: "previews/song10.mp3" },
+  { title: "11. STAND ON IT", file: "previews/song11.mp3" },
+  { title: "12. LOW TIDES", file: "previews/song12.mp3" }
 ];
 
 let currentTrackIndex = 0;
