@@ -47,6 +47,13 @@ function updateTrackHighlight() {
 }
 
 function togglePlay() {
+  if (!audio.src) {
+    // No song loaded yet — start with the first track
+    currentTrackIndex = 0;
+    playTrack();
+    return;
+  }
+
   if (audio.paused) {
     audio.play();
     document.getElementById("playPauseBtn").textContent = "⏸";
@@ -55,6 +62,7 @@ function togglePlay() {
     document.getElementById("playPauseBtn").textContent = "▶️";
   }
 }
+
 
 function prevTrack() {
   currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
