@@ -63,7 +63,6 @@ function togglePlay() {
   }
 }
 
-
 function prevTrack() {
   currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
   playTrack();
@@ -82,6 +81,20 @@ audio.ontimeupdate = () => {
   progress.value = (audio.currentTime / audio.duration) * 100 || 0;
   current.textContent = formatTime(audio.currentTime);
   duration.textContent = formatTime(audio.duration);
+};
+
+// ✅ Automatically play the next track when current one ends
+audio.onended = () => {
+  if (currentTrackIndex < tracks.length - 1) {
+    currentTrackIndex++;
+    playTrack();
+  } else {
+    // Optionally loop back to first song
+    // currentTrackIndex = 0;
+    // playTrack();
+
+    document.getElementById("playPauseBtn").textContent = "▶️";
+  }
 };
 
 function formatTime(t) {
