@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JungleJuxe Main</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/player.css" />
+  <style>
+    .preorder-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Header -->
+  <header class="floating-header">
+    <div class="header-inner">
+      <img src="assets/header_logo.png" class="header-logo" />
+      <nav class="main-nav">
+        <a href="#album">ALBUM</a>
+        <a href="#event">RELEASE PARTY</a>
+        <a href="#store">STORE</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main style="margin-top: 150px;">
+    <section id="album">
+      <div class="player-wrapper">
+        <div class="player-container">
+          <div class="album-info">
+            <img src="assets/COVER_ART.jpeg" alt="Album Art" class="album-art" />
+            <h1>JungleJuxe</h1>
+            <p>by CAEV</p>
+          </div>
+
+          <div class="player-controls">
+            <button onclick="prevTrack()">⏮</button>
+            <button onclick="togglePlay()" id="playPauseBtn">▶️</button>
+            <button onclick="nextTrack()">⏭</button>
+          </div>
+
+          <div class="progress-bar">
+            <span id="currentTime">0:00</span>
+            <input type="range" id="progress" value="0" min="0" max="100">
+            <span id="duration">0:00</span>
+          </div>
+
+          <div class="track-list" id="trackList">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      Lost & Found Records &trade;<br />
+      &copy; 2025 JungleJuxe. All rights reserved.
+    </footer>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/player.js"></script>
+
+  <!-- Shopify Buy Button Scripts -->
+  <script type="text/javascript">
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
+        }
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.head || document.body).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'xvpav0-s3.myshopify.com',
+          storefrontAccessToken: '739f2f97a9537660c80a18fe33999d00',
+        });
+
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          // Collection
+          ui.createComponent('collection', {
+            id: '511679234362',
+            node: document.getElementById('collection-component-1748292361713'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              // your existing collection styles here...
+            }
+          });
+
+          // Pre-order Product Button
+          ui.createComponent('product', {
+            id: '8311133210805', // Replace with your actual product ID
+            node: document.getElementById('product-component-1749491143341'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              product: {
+                buttonDestination: 'cart',
+                layout: 'vertical',
+                contents: {
+                  img: false,
+                  title: true,
+                  price: true,
+                },
+                text: {
+                  button: 'Pre-order Album',
+                },
+                styles: {
+                  product: {
+                    textAlign: 'center',
+                    maxWidth: '100%',
+                  },
+                  button: {
+                    backgroundColor: '#1db954',
+                    color: '#ffffff',
+                    fontSize: '16px',
+                    padding: '12px',
+                    ':hover': {
+                      backgroundColor: '#17a04f'
+                    },
+                    ':focus': {
+                      backgroundColor: '#17a04f'
+                    }
+                  }
+                }
+              },
+              cart: {
+                startOpen: false
+              }
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
